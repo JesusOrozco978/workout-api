@@ -28,20 +28,20 @@ const getWorkOutsByBody = async (request, response) => {
     ? response.send(foundWorkout) : response.sendStatus(404)
 }
 
-// const saveNewWorkout = async (request, response) => {
-//   try {
-//     const { workoutName, description } = request.body
+const saveNewWorkout = async (request, response) => {
+  try {
+    const { workoutName, description, equipmentId } = request.body
 
-//     if (!workoutName || !description) {
-//       return response.status(400).send('This is not completed')
-//     }
-//     const newWorkout = await model.Workout.create({ workoutName, description })
+    if (!workoutName || !description || !equipmentId) {
+      return response.status(400).send('This is not completed')
+    }
+    const newWorkout = await model.Workout.create({ workoutName, description, equipmentId })
 
-//     return response.status(201).send(newWorkout)
-//   } catch (error) {
-//     return response.status(500).send('Can not add Workout')
-//   }
-// }
+    return response.status(201).send(newWorkout)
+  } catch (error) {
+    return response.status(500).send('Can not add Workout')
+  }
+}
 
 
-module.exports = { getAllWorkouts, getWorkOutsByBody }
+module.exports = { getAllWorkouts, getWorkOutsByBody, saveNewWorkout }
