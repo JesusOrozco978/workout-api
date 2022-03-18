@@ -1,12 +1,14 @@
 const express = require('express')
-const getAllWorkouts = require('./controllers/workOuts')
+const { getAllWorkouts, getWorkOutsByBody } = require('./controllers/workOuts')
 const app = express()
+
 
 app.use(express.static('public'))
 
 app.set('view engine', 'pug')
 
 app.get('/workOuts', getAllWorkouts)
+app.get('/workOuts/:id', getWorkOutsByBody)
 
 app.get('/', (request, response) => {
   return response.render('index')

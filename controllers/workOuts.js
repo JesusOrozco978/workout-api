@@ -9,26 +9,24 @@ const getAllWorkouts = async (request, response) => {
   return response.send(workouts)
 }
 
-// const getWorkOutsByBody = async (request, response) => {
-//   const { id } = request.params
-//   const foundWorkout = await model.Workout.findOne({
-//     where: {
-//       [model.Sequelize.Op.or]: [
-//         { id: id },
-//         { workoutName: { [model.Sequelize.Op.like]: `%${id}%` } },
-//       ]
-//     },
-//     include: [{
-//       model: model.Equipments,
-//       include: [{
-//         model: model.BodyParts
-//       }]
-//     }]
-//   })
+const getWorkOutsByBody = async (request, response) => {
+  const { id } = request.params
+  const foundWorkout = await model.Workout.findOne({
+    where: {
+      [model.Sequelize.Op.or]: [
+        { id: id },
+        { workoutName: { [model.Sequelize.Op.like]: `%${id}%` } },
+      ]
+    },
+    include: [{
+      model: model.BodyParts
+    }]
 
-//   return foundWorkout
-//     ? response.send(foundWorkout) : response.sendStatus(404)
-// }
+  })
+
+  return foundWorkout
+    ? response.send(foundWorkout) : response.sendStatus(404)
+}
 
 // const saveNewWorkout = async (request, response) => {
 //   try {
@@ -46,4 +44,4 @@ const getAllWorkouts = async (request, response) => {
 // }
 
 
-module.exports = getAllWorkouts
+module.exports = { getAllWorkouts, getWorkOutsByBody }
