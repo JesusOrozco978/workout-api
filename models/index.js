@@ -2,6 +2,7 @@ const Sequelize = require('sequelize')
 const WorkOutModel = require('./workOuts')
 const EquipmentsModel = require('./equipments')
 const bodyPartsModel = require('./bodyParts')
+const workoutsBodyPartsModel = require('./workoutsBodyParts')
 const allConfigs = require('../config/sequelize')
 const environment = process.env.NODE_ENV || 'development'
 const config = allConfigs[environment]
@@ -13,12 +14,14 @@ const connection = new Sequelize(config.database, config.username, config.passwo
 const Workout = WorkOutModel(connection, Sequelize)
 const Equipments = EquipmentsModel(connection, Sequelize, Workout)
 const BodyParts = bodyPartsModel(connection, Sequelize, Workout)
+const WorkoutBodyParts = workoutsBodyPartsModel(connection, Sequelize, Workout, BodyParts)
 
-Equipments.belongsTo(Workout)
-Workout.hasMany(Equipments)
-BodyParts.belongsTo(Workout)
-Workout.hasMany(BodyParts)
+Equipments.hasMany(Workout)
+Workout.belongsTo(Equipments)
+Workout.belongsToMany(BodyParts, { through: WorkoutBodyParts })
+BodyParts.belongsToMany(Workout, { through: WorkoutBodyParts })
+
 
 module.exports = {
-  Workout, Equipments, BodyParts, Sequelize,
+  Workout, Equipments, BodyParts, Sequelize, WorkoutBodyParts
 }

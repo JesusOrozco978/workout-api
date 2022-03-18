@@ -3,6 +3,16 @@
 
 module.exports = {
   async up(queryInterface, Sequelize) {
+    await queryInterface.bulkInsert('equipments', [{
+      equipmentName: 'Dumbbell',
+    }, {
+      equipmentName: 'Barbell',
+    }, {
+      equipmentName: 'Cable',
+    }, {
+      equipmentName: 'Machine',
+    }])
+
     await queryInterface.bulkInsert('workouts', [
       {
         workoutName: 'One Arm Row',
@@ -86,15 +96,7 @@ module.exports = {
         equipmentId: 1,
       }])
 
-    await queryInterface.bulkInsert('equipments', [{
-      equipmentName: 'Dumbbell',
-    }, {
-      equipmentName: 'Barbell',
-    }, {
-      equipmentName: 'Cable',
-    }, {
-      equipmentName: 'Machine',
-    }])
+
 
     await queryInterface.bulkInsert('bodyParts', [{
       body: 'Back',
@@ -112,116 +114,116 @@ module.exports = {
     ])
 
     return queryInterface.bulkInsert('workoutsBodyParts', [{
-      workoutNameID: 1,
-      bodyId: 1,
+      workOutId: 1,
+      bodyPartId: 1,
     },
     {
-      workoutNameID: 1,
-      bodyId: 6,
+      workOutId: 1,
+      bodyPartId: 6,
     },
     {
-      workoutNameID: 2,
-      bodyId: 1,
+      workOutId: 2,
+      bodyPartId: 1,
     },
     {
-      workoutNameID: 2,
-      bodyId: 4,
+      workOutId: 2,
+      bodyPartId: 4,
     },
     {
-      workoutNameID: 3,
-      bodyId: 1,
+      workOutId: 3,
+      bodyPartId: 1,
     },
     {
-      workoutNameID: 3,
-      bodyId: 6,
+      workOutId: 3,
+      bodyPartId: 6,
     },
     {
-      workoutNameID: 4,
-      bodyId: 1,
+      workOutId: 4,
+      bodyPartId: 1,
     },
     {
-      workoutNameID: 4,
-      bodyId: 3,
+      workOutId: 4,
+      bodyPartId: 3,
     },
     {
-      workoutNameID: 5,
-      bodyId: 1,
+      workOutId: 5,
+      bodyPartId: 1,
     },
     {
-      workoutNameID: 5,
-      bodyId: 6,
+      workOutId: 5,
+      bodyPartId: 6,
     },
     {
-      workoutNameID: 6,
-      bodyId: 1,
+      workOutId: 6,
+      bodyPartId: 1,
     },
     {
-      workoutNameID: 6,
-      bodyId: 6,
+      workOutId: 6,
+      bodyPartId: 6,
     },
     {
-      workoutNameID: 7,
-      bodyId: 2,
+      workOutId: 7,
+      bodyPartId: 2,
     },
     {
-      workoutNameID: 8,
-      bodyId: 2,
+      workOutId: 8,
+      bodyPartId: 2,
     },
     {
-      workoutNameID: 8,
-      bodyId: 5,
+      workOutId: 8,
+      bodyPartId: 5,
     },
     {
-      workoutNameID: 9,
-      bodyId: 3,
+      workOutId: 9,
+      bodyPartId: 3,
     },
     {
-      workoutNameID: 10,
-      bodyId: 3,
+      workOutId: 10,
+      bodyPartId: 3,
     },
     {
-      workoutNameID: 11,
-      bodyId: 3,
+      workOutId: 11,
+      bodyPartId: 3,
     },
     {
-      workoutNameID: 12,
-      bodyId: 5,
+      workOutId: 12,
+      bodyPartId: 5,
     },
     {
-      workoutNameID: 13,
-      bodyId: 5,
+      workOutId: 13,
+      bodyPartId: 5,
     },
     {
-      workoutNameID: 14,
-      bodyId: 5,
+      workOutId: 14,
+      bodyPartId: 5,
     },
     {
-      workoutNameID: 15,
-      bodyId: 2,
+      workOutId: 15,
+      bodyPartId: 2,
     },
     {
-      workoutNameID: 15,
-      bodyId: 5,
+      workOutId: 15,
+      bodyPartId: 5,
     },
     {
-      workoutNameID: 16,
-      bodyId: 6,
+      workOutId: 16,
+      bodyPartId: 6,
     },
     {
-      workoutNameID: 17,
-      bodyId: 6,
+      workOutId: 17,
+      bodyPartId: 6,
     },
     {
-      workoutNameID: 18,
-      bodyId: 6,
+      workOutId: 18,
+      bodyPartId: 6,
     },
     {
-      workoutNameID: 19,
-      bodyId: 4,
+      workOutId: 19,
+      bodyPartId: 4,
     },
     {
-      workoutNameID: 20,
-      bodyId: 4,
+      workOutId: 20,
+      bodyPartId: 4,
     }])
   },
 

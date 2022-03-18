@@ -39,8 +39,8 @@ module.exports = {
 
 
     return queryInterface.createTable('workoutsBodyParts', {
-      workoutNameID: { type: Sequelize.INTEGER, references: { model: 'workOuts', key: 'id' } },
-      bodyId: { type: Sequelize.INTEGER, references: { model: 'bodyParts', key: 'id' } },
+      workOutId: { type: Sequelize.INTEGER, references: { model: 'workOuts', key: 'id' } },
+      bodyPartId: { type: Sequelize.INTEGER, references: { model: 'bodyParts', key: 'id' } },
       createdAt: { type: Sequelize.DATE, defaultValue: Sequelize.literal('CURRENT_TIMESTAMP') },
       updatedAt: {
         type: Sequelize.DATE,
