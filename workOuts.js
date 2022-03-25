@@ -60,3 +60,28 @@ function App() {
 }
 
 export default App;
+
+
+
+useEffect(() => {
+  setSearchWorkout(
+    workouts.filter((novels) =>
+      workouts.workouts.toLowerCase().includes(workouts.toLowerCase())
+    )
+  );
+}, [workouts]);
+
+
+return(
+  <><div className="displayPage" /><input
+    className="searchBar"
+    type="text"
+    onChange={(event) => setWorkouts(event.target.value)} />
+    <div className="searchWorkout"/>
+    {searchWorkout.map(workouts =>{
+      return(
+        <div>
+       Hey!
+        </div>
+      )
+    })}

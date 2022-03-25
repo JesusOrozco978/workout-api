@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Display from './components/WorkOutsData';
+import Display from './components/Display';
 
 
 function App() {
